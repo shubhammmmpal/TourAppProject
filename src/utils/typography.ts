@@ -10,17 +10,10 @@ export const shadowStyle: any = {
 
 
 export const fonts = {
-  MontserratBlack: 'Montserrat-Black',
-  MontserratBold: 'Montserrat-Bold',
-  MontserratExtraBold: 'Montserrat-ExtraBold',
-  MontserratExtraLight: 'Montserrat-ExtraLight',
-  MontserratLight: 'Montserrat-Light',
-  MontserratMedium: 'Montserrat-Medium',
-  MontserratRegular: 'Montserrat-Regular',
-  MontserratSemiBold: 'Montserrat-SemiBold',
-  MontserratThin: 'Montserrat-Thin',
-  MontserratItalic:"Montserrat-Italic"
-
+  AvenirBlack: 'Avenir-Black',
+  AvenirHeavy: 'Avenir-Heavy',
+  AvenirRegular: 'Avenir-Regular',
+  AvenirNext:'Avenir Next',
 }
 
 

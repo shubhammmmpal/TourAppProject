@@ -4,49 +4,24 @@ import { fonts } from '../../utils/typography'
 import { AppTextProps } from '../../utils/Types'
 
 
-const AppText = ({ size, top, color, family, align, width, height, underlineColor, underline, onPress, transform, numLines, spacing, horizontal, children, testID, customColor, dotMode, animateValue, maxWidth, opacity, lineHeight, handleTextLayout, textDecorationStyle, fontStyle }: AppTextProps) => {
+const AppText = ({ size, top, color, family, align, width, height, underlineColor, underline, onPress, transform, numLines, spacing, horizontal, children, testID, customColor, dotMode, animateValue, maxWidth, opacity, lineHeight, handleTextLayout, textDecorationStyle, fontStyle, includeFontPadding }: AppTextProps) => {
 
   let fontFamily: any
   switch (family) {
-    case 'Montserrat-Black': {
-      fontFamily = fonts.MontserratBlack
+    case 'AvenirBlack': {
+      fontFamily = fonts.AvenirBlack
       break
     }
-    case 'Montserrat-Italic': {
-      fontFamily = fonts.MontserratItalic
+    case 'AvenirHeavy': {
+      fontFamily = fonts.AvenirHeavy
       break
     }
-    
-    case 'Montserrat-Bold': {
-      fontFamily = fonts.MontserratBold
+    case 'AvenirRegular': {
+      fontFamily = fonts.AvenirRegular
       break
     }
-    case 'Montserrat-Medium': {
-      fontFamily = fonts.MontserratMedium
-      break
-    }
-    case 'Montserrat-Light': {
-      fontFamily = fonts.MontserratLight
-      break
-    }
-    case 'Montserrat-Regular': {
-      fontFamily = fonts.MontserratRegular
-      break
-    }
-    case 'Montserrat-ExtraBold': {
-      fontFamily = fonts.MontserratExtraBold
-      break
-    }
-    case 'Montserrat-ExtraLight': {
-      fontFamily = fonts.MontserratExtraLight
-      break
-    }
-    case 'Montserrat-SemiBold': {
-      fontFamily = fonts.MontserratSemiBold
-      break
-    }
-    case 'Montserrat-Thin': {
-      fontFamily = fonts.MontserratThin
+    case 'AvenirNext': {
+      fontFamily = fonts.AvenirNext
       break
     }
 
@@ -69,7 +44,7 @@ const AppText = ({ size, top, color, family, align, width, height, underlineColo
     opacity: opacity ? opacity : 1,
     lineHeight: lineHeight,
     fontStyle: fontStyle,
-    
+    includeFontPadding: (includeFontPadding === undefined || includeFontPadding == true) ? true : false,
   }
   return (
     <Animated.Text style={[style, animateValue && { transform: [{ scale: animateValue }], }]} numberOfLines={numLines} ellipsizeMode={dotMode} onPress={onPress} onTextLayout={handleTextLayout}>{children}</Animated.Text>

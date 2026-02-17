@@ -18,7 +18,7 @@ export type AppTextProps = {
   size?: number,
   top?: number | string | any
   color?: string,
-  family?: 'Montserrat-Black' | 'Montserrat-Bold' | 'Montserrat-Light' | 'Montserrat-Medium' | 'Montserrat-Regular' | 'Montserrat-ExtraBold' | 'Montserrat-ExtraLight' | 'Montserrat-SemiBold' | 'Montserrat-Thin' | 'Montserrat-Italic'
+  family?: 'AvenirBlack' | 'AvenirHeavy' | 'AvenirRegular' | 'AvenirNext',
   align?: 'left' | 'center' | 'right' | 'justify'
   transform?: 'capitalize' | 'lowercase' | 'uppercase' | 'none'
   numLines?: number
@@ -40,79 +40,10 @@ export type AppTextProps = {
   opacity?: number | string | any
   lineHeight?: number | string | any
   fontStyle?: any
-}
-export type CustomHeaderProps = {
-  title?: string
-  navigation?: any
-  rightPress?: () => void
-  backPress?: () => void;
-  rightButton?: any
-  customRightStatus?: boolean
-  customRightButton?: any
+  includeFontPadding?: boolean
 }
 
-export type DropDownTextInputProps = {
-  title: string;
-  placeholder: string;
-  preInputChnage?: boolean;
-  data?: any;
-  disabled?:any
-  width?: any;
-  isEdit?: string;
-  isIcons?: boolean;
-  onPress?: () => void;
-  text?: any,
-  preSelect?: any,
-  handleSelectPress?: (text: string) => void,
-  setText: (text: string) => void,
-  onChangeText?: (text: string) => void;
-  value?: string;
-  preValue?: string;
-  selectItemValue: (name: string) => void;
-  clearOnPress?: () => void;
-  onClearPress?: () => void;
-};
 
-
-export type SubmitButtonProps = {
-  title: string;
-  pressing: () => void;
-  widthOf?: string | number | any;
-  loader?: boolean;
-  colorChange?: any;
-  opacity?: any;
-  colortext?: string;
-  width?: string | number | any;
-  height?: string | number | any;
-  disabled?: boolean;
-  icon?: boolean;
-  icon2?: boolean;
-  disable?: boolean;
-  fontSize?: number | any;
-};
-
-
-export type SimpleButtonProps = {
-  title: string;
-  pressing: () => void;
-  widthOf?: string | number | any;
-  loader?: boolean;
-  colorChange?: any;
-  opacity?: any;
-  borderRadius?:any;
-  colortext?: string;
-  width?: string | number | any;
-  height?: string | number | any;
-  disabled?: boolean;
-  icon?: boolean;
-  icon2?: boolean;
-  disable?: boolean;
-  fontSize?: number | any;
-};
-export type loginParmas = {
-  email: string;
-  password: string;
-};
 
 
 export type InputFieldProps = {
@@ -141,29 +72,6 @@ export type InputFieldProps = {
   focus?: any
 }
 
-
-
-export type MultilineInputFieldProps = {
-  value: any
-  maxLength?: any
-  times?: any;
-  name?: any
-  setValue: any
-  secure: boolean
-  placeHolder: string
-  editable?: boolean
-  border?: number
-  formikValue?: any
-  formikError?: any
-  width?: any
-  numberOfLines?: any
-  keyboard?: 'numeric'
-  ref?: any
-  onKeyPress?: any
-  onSubmit?: () => void
-  returnKeyType?: any
-  focus?: any
-}
 
 export const getInitialsData = (fullname: any) => {
   return fullname
