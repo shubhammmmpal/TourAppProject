@@ -6,112 +6,112 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    headerView:{
+    headerView: {
         width: "100%",
         paddingHorizontal: rw(16)
     },
-    row:{
+    row: {
         flexDirection: 'row',
         alignItems: 'center',
-        
+
     },
-    profileView:{
+    profileView: {
         height: 45,
         width: 45,
 
     },
-    center:{
+    center: {
         justifyContent: 'center',
         alignItems: 'center'
     },
-    profileImg:{
+    profileImg: {
         height: 36,
-        width: 36, 
+        width: 36,
         borderRadius: 18,
         overflow: 'hidden',
     },
-    notiifcationView:{
+    notiifcationView: {
         height: 45,
         width: 45,
         borderRadius: 45,
         backgroundColor: '#E7EAEE',
-        
+
     },
-    banner:{
+    banner: {
         marginTop: 16
-    }, 
-    varietyView:{
+    },
+    varietyView: {
         marginTop: 16,
         paddingHorizontal: 16,
         borderBottomWidth: 1,
         borderBottomColor: 'rgba(157, 157, 157, 0.2)'
     },
-    buttonView:{
+    buttonView: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    featuredBtn:{
+    featuredBtn: {
         height: 65,
         paddingHorizontal: 8,
         gap: 3,
-        paddingBottom: 2      
+        paddingBottom: 2
     },
-    bottomLine:{
+    bottomLine: {
         height: 2,
         width: 40,
         backgroundColor: colors.blue,
         position: 'absolute',
         bottom: 0,
     },
-    bigBanner:{
+    bigBanner: {
         marginTop: 21,
         marginBottom: 36
     },
-    ticketView:{
+    ticketView: {
         paddingVertical: 20,
         paddingHorizontal: 16,
         gap: 8
     },
-    ticketInnerView:{
+    ticketInnerView: {
         backgroundColor: 'white',
         paddingVertical: 12,
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0, 0.1)',
         borderRadius: 16,
-        
+
     },
-    ticketRow:{
+    ticketRow: {
         gap: 10,
         flex: 1,
     },
-    fromInnerView:{
+    fromInnerView: {
         gap: 4,
         paddingLeft: 10,
         flex: 1,
     },
-    line:{
+    line: {
         height: 1,
         width: "100%",
         backgroundColor: 'rgba(120, 120, 120, 0.2)',
     },
-    reverseBtn:{
+    reverseBtn: {
         height: 35,
         width: 35,
         borderRadius: 35,
         backgroundColor: colors.blue,
         justifyContent: 'center',
         alignItems: 'center',
-        position:"absolute",
+        position: "absolute",
         right: 12,
         marginTop: -18
     },
-    daysView:{
+    daysView: {
         paddingVertical: 12,
         paddingHorizontal: 12,
     },
-    todayBtn:{
-        height:38,
+    todayBtn: {
+        height: 38,
         paddingHorizontal: 12,
         borderRadius: 20,
         backgroundColor: "#EFEFEF",
@@ -122,38 +122,49 @@ export const styles = StyleSheet.create({
         alignSelf: 'flex-start',
 
     },
-    calendarView:{
+    calendarView: {
         height: 30,
         width: 30,
-        backgroundColor:"#E5E5EA",
+        backgroundColor: "#E5E5EA",
         borderRadius: 30,
         overflow: 'hidden',
     },
-    linearBtn:{
+    linearBtn: {
         width: '100%',
         paddingHorizontal: 12,
         marginTop: 12
     },
-    gradientbtn:{
+    gradientbtn: {
         flex: 1,
         borderRadius: 40,
         height: 50
     },
-    bigBannerView:{
+    bigBannerView: {
         width: SCREEN_WIDTH * 0.6,
         borderRadius: 12,
         overflow: 'hidden',
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0, 0.1)',
-        backgroundColor:'white'
+        backgroundColor: 'white'
     },
-    innerTextView:{
+    innerTextView: {
         width: "100%",
         height: 55,
         marginBottom: 14,
         borderTopWidth: 1,
-        borderTopColor:'rgba(0, 0, 0, 0.1)',
+        borderTopColor: 'rgba(0, 0, 0, 0.1)',
         paddingTop: 6,
-        paddingHorizontal:14
+        paddingHorizontal: 14,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
+    leftIcon: {
+        height: 24,
+        width: 24,
+        backgroundColor: 'rgba(34, 34, 34, 0.05)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius:100
+    }
 });

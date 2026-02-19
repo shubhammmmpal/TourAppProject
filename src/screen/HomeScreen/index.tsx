@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { styles } from './styles'
 import FastImage from 'react-native-fast-image'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { BusIcon, CalenderIcon, FlightIcon, HotelIcon, NotificationBellIcon, OfferIcon, ReverseIcon, TrainDarkIcon, TrainIcon } from '../../assets/svgs/HomeScreenSvgs'
+import { ArrowLeftIcon, BusIcon, CalenderIcon, FlightIcon, HotelIcon, NotificationBellIcon, OfferIcon, ReverseIcon, TrainDarkIcon, TrainIcon } from '../../assets/svgs/HomeScreenSvgs'
 import { SCREEN_WIDTH } from '../../helper/responsiveUtils'
 import AppText from '../../components/AppText/AppText'
 import LinearGradient from 'react-native-linear-gradient'
@@ -59,8 +59,13 @@ const HomeScreen = () => {
       }]}>
         <FastImage style={{ width: "100%", height: 250 }} source={item?.img} resizeMode='contain' />
         <View style={styles.innerTextView}>
+          <View style={{width:'85%'}}>
           <AppText size={18} family='AvenirHeavy' color='black'>{item?.title}</AppText>
           <AppText numLines={1} size={14} family='AvenirRegular' color='#76777B'>{item?.describe}</AppText>
+          </View>
+          <Pressable style={styles.leftIcon}>
+            <ArrowLeftIcon/>
+          </Pressable>
         </View>
       </View>
     )

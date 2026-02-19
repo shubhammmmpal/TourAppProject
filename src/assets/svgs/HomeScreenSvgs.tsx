@@ -206,4 +206,25 @@ function CalenderIcon(props: any) {
   )
 }
 
-export {NotificationBellIcon, BusIcon, TrainIcon, FlightIcon, HotelIcon, OfferIcon, TrainDarkIcon, ReverseIcon, CalenderIcon}
+
+function ArrowLeftIcon(props:any) {
+  return (
+    <Svg
+      width={15}
+      height={15}
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <Path
+        d="M.5 7.5h13.92m0 0L7.46.5m6.96 7l-6.96 7"
+        stroke="#181D27"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  )
+}
+
+export {NotificationBellIcon, BusIcon, TrainIcon,ArrowLeftIcon, FlightIcon, HotelIcon, OfferIcon, TrainDarkIcon, ReverseIcon, CalenderIcon}
