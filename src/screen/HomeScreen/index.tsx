@@ -10,7 +10,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import App from '../../../App'
 import { Line } from 'react-native-svg'
 import { colors } from '../../utils/Colors'
-import { homeBanner } from '../../utils/CommonFunction'
+import { homeBanner, topDestination } from '../../utils/CommonFunction'
 
 const bannerData = [
   {
@@ -59,17 +59,35 @@ const HomeScreen = () => {
       }]}>
         <FastImage style={{ width: "100%", height: 250 }} source={item?.img} resizeMode='contain' />
         <View style={styles.innerTextView}>
-          <View style={{width:'85%'}}>
-          <AppText size={18} family='AvenirHeavy' color='black'>{item?.title}</AppText>
-          <AppText numLines={1} size={14} family='AvenirRegular' color='#76777B'>{item?.describe}</AppText>
+          <View style={{ width: '85%' }}>
+            <AppText size={18} family='AvenirHeavy' color='black'>{item?.title}</AppText>
+            <AppText numLines={1} size={14} family='AvenirRegular' color='#76777B'>{item?.describe}</AppText>
           </View>
           <Pressable style={styles.leftIcon}>
-            <ArrowLeftIcon/>
+            <ArrowLeftIcon />
           </Pressable>
         </View>
       </View>
     )
   }
+
+  const topDestinationRenderItem = ({ item, index }: { item: any, index: number }) => {
+    return (
+      <View style={styles.destinationItem}>
+        <FastImage style={styles.destiantionImg} source={item?.img} resizeMode='cover' >
+          <LinearGradient colors={['transparent', 'rgba(0,0,0,1)']}
+            style={{ position: 'absolute', bottom: 0, width: "100%", height: 120 }}
+          >
+          </LinearGradient>
+          <View style={{ flex: 1, padding: 12, justifyContent: 'flex-end', gap: 4 }}>
+            <AppText size={14} family='AvenirHeavy' color='white' >{item?.title}</AppText>
+            <AppText size={12} family='AvenirRegular' color='white' >{'5 places'}</AppText>
+          </View>
+        </FastImage>
+      </View>
+    )
+  }
+
   return (
     <View style={[styles.container, { backgroundColor: "#fff" }]}>
       <SafeAreaView style={[Platform.OS === "android" && { marginTop: 10 }]} edges={['top']} />
@@ -205,6 +223,39 @@ const HomeScreen = () => {
             decelerationRate="fast"
           />
         </View>
+        <View style={styles.viewInner}>
+          <View style={{ paddingHorizontal: 16, marginBottom: 16 }}>
+            <AppText size={18} family='AvenirHeavy' color='black'>Top destination</AppText>
+          </View>
+          <FlatList
+            data={topDestination}
+            keyExtractor={(item) => item?.id?.toString()}
+            renderItem={topDestinationRenderItem}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 16, gap: 13 }}
+          />
+        </View>
+
+        <View style={styles.bannerBetween}>
+          <FastImage source={require('../../assets/images/HomeScreen/banner2.jpg')} style={{ width: "100%", height: "100%" }} resizeMode='cover' >
+            <LinearGradient colors={['transparent', 'rgba(0,0,0,0.9)']}
+              style={{ position: 'absolute', bottom: 0, width: "100%", height: 130,  }}
+            >
+              <View style={[{   flex: 1, marginTop: 17, padding: 12  }, styles.row, {alignItems:"flex-end", justifyContent:"space-between"}]}>
+                <View style={{width: '70%'}}>
+                  <AppText size={24} family='AvenirHeavy' color='white'>Book Hotels at Just Starting on ₹799</AppText>
+                </View>
+                <Pressable style={[styles.BookNowbtn, styles.center]} onPress={() => console.log("object")}>
+                  <AppText size={12} family='AvenirHeavy' color='white'>Book Now</AppText>
+                </Pressable>
+              </View>
+            </LinearGradient>
+
+
+          </FastImage>
+        </View>
+
         <View style={{ height: 200 }} />
       </ScrollView>
     </View>

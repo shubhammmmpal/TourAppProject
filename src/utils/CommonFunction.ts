@@ -96,3 +96,27 @@ export const homeBanner = [
     describe: "Find cozy hotels instantly anywhere", // 5 words
   },
 ];
+
+
+export const topDestination = [
+  {
+    id: 1,
+    img: require('../assets/images/HomeScreen/Bombay.jpg'),
+    title: "Bombay",
+  }, 
+  {
+    id: 3,
+    img: require('../assets/images/HomeScreen/Delhi.jpg'),
+    title: "Delhi",
+  },
+  {
+    id: 3,
+    img: require('../assets/images/HomeScreen/Pune.jpg'),
+    title: "Pune",
+  },
+  {
+    id: 4,
+    img: require('../assets/images/HomeScreen/Goa.jpg'),
+    title: "Goa",
+  },
+]

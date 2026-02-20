@@ -65,13 +65,12 @@ export const styles = StyleSheet.create({
         bottom: 0,
     },
     bigBanner: {
-        marginTop: 21,
-        marginBottom: 36
+        marginTop: 36,
     },
     ticketView: {
-        paddingVertical: 20,
+        paddingTop: 20,
         paddingHorizontal: 16,
-        gap: 8
+        gap: 16
     },
     ticketInnerView: {
         backgroundColor: 'white',
@@ -166,5 +165,33 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius:100
-    }
+    },
+    viewInner:{
+        marginTop: 36,
+    },
+    destinationItem:{
+        width: 159,
+        height: 167,
+        borderRadius: 16
+    },
+    destiantionImg:{
+        width: "100%",
+        height: "100%",
+        borderRadius: 16,
+        overflow: 'hidden'
+    },
+    bannerBetween:{
+        height: 183,
+        width: '100%',
+        marginTop: 36,
+    },
+    BookNowbtn:{
+        height: 36,
+        paddingHorizontal: 12,
+        borderRadius: 30,
+        borderColor: "rgba(255, 255, 255, 0.2)",
+        borderWidth: 1,
+        marginBottom: 12,
+        backgroundColor: colors.blue,
+    },
 });
