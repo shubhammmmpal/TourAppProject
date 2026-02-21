@@ -141,9 +141,9 @@ export const styles = StyleSheet.create({
     bigBannerView: {
         width: SCREEN_WIDTH * 0.6,
         borderRadius: 12,
-        overflow: 'hidden',
-        borderWidth: 1,
-        borderColor: 'rgba(0, 0, 0, 0.1)',
+        // overflow: 'hidden',
+        // borderWidth: 1,
+        // borderColor: 'rgba(0, 0, 0, 0.1)',
         backgroundColor: 'white'
     },
     innerTextView: {
@@ -164,28 +164,28 @@ export const styles = StyleSheet.create({
         backgroundColor: 'rgba(34, 34, 34, 0.05)',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius:100
+        borderRadius: 100
     },
-    viewInner:{
+    viewInner: {
         marginTop: 36,
     },
-    destinationItem:{
+    destinationItem: {
         width: 159,
         height: 167,
         borderRadius: 16
     },
-    destiantionImg:{
+    destiantionImg: {
         width: "100%",
         height: "100%",
         borderRadius: 16,
         overflow: 'hidden'
     },
-    bannerBetween:{
+    bannerBetween: {
         height: 183,
         width: '100%',
         marginTop: 36,
     },
-    BookNowbtn:{
+    BookNowbtn: {
         height: 36,
         paddingHorizontal: 12,
         borderRadius: 30,
@@ -194,4 +194,95 @@ export const styles = StyleSheet.create({
         marginBottom: 12,
         backgroundColor: colors.blue,
     },
+    mostPopularView: {
+        width: SCREEN_WIDTH * 0.4,
+        borderRadius: 10,
+        // overflow: 'hidden',
+        // borderWidth: 1,
+        // borderColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: 'white',
+        shadowOffset: { width: 0, height: 0 },
+        shadowColor: 'grey',
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        elevation: 2,
+        paddingVertical: 10
+    },
+    innerPopularTextView: {
+        width: "100%",
+        paddingTop: 8,
+        paddingHorizontal: 14,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+    },
+    hostBtn: {
+        height: 44,
+        paddingHorizontal: 12,
+        gap: 8,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderWidth: 1,
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
+        borderRadius: 100
+    },
+    imageBg: {
+        height: 28,
+        width: 28,
+        backgroundColor: '#F5F5F5',
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    exploreHost:{
+        flexGrow: 1, 
+        marginHorizontal: 16, 
+        // gap: 13,
+        backgroundColor:'#fff' ,
+        borderRadius:8,
+        marginTop:16,
+        paddingVertical:6
+    },
+    hostingCard: {
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        paddingTop:2
+    },
+
+    hostingImage: {
+        width: 78,
+        height: 78,
+        borderRadius: 8,
+    },
+
+    hostingContent: {
+        flex: 1,
+        marginLeft: 12,
+        justifyContent: 'space-between',
+    },
+
+    hostingHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+
+    locationRow: {
+        marginTop: 4,
+    },
+
+    priceRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 8,
+    },
+
+    ratingRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 4,
+    },
+
 });

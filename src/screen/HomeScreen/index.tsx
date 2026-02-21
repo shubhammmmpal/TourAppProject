@@ -3,14 +3,15 @@ import React, { useState } from 'react'
 import { styles } from './styles'
 import FastImage from 'react-native-fast-image'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ArrowLeftIcon, BusIcon, CalenderIcon, FlightIcon, HotelIcon, NotificationBellIcon, OfferIcon, ReverseIcon, TrainDarkIcon, TrainIcon } from '../../assets/svgs/HomeScreenSvgs'
+import { ArrowLeftIcon, BusIcon, CalenderIcon, FlightIcon, HeartIcon, HotelIcon, NotificationBellIcon, OfferIcon, ReverseIcon, StarIcon, TrainDarkIcon, TrainIcon } from '../../assets/svgs/HomeScreenSvgs'
 import { SCREEN_WIDTH } from '../../helper/responsiveUtils'
 import AppText from '../../components/AppText/AppText'
 import LinearGradient from 'react-native-linear-gradient'
 import App from '../../../App'
 import { Line } from 'react-native-svg'
 import { colors } from '../../utils/Colors'
-import { homeBanner, topDestination } from '../../utils/CommonFunction'
+import { homeBanner, hostingList, mostPopularDestination, topDestination } from '../../utils/CommonFunction'
+import { shadowStyle } from '../../utils/typography'
 
 const bannerData = [
   {
@@ -28,6 +29,22 @@ const bannerData = [
 ]
 const HomeScreen = () => {
   const [travelStatus, setTravelStatus] = useState('Bus')
+  const [exploreStatus, setExploreStatus] = useState<
+    'Hotel' | 'Apartement' | 'Villas' | null
+  >(null);
+
+  const [favourites, setFavourites] = useState<Record<string, boolean>>({});
+  const onHeartPress = (id: string) => {
+    setFavourites(prev => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const onSelectHosting = (value: 'Hotel' | 'Apartement' | 'Villas') => {
+    setExploreStatus(prev => (prev === value ? null : value));
+  };
+
   const renderItem = ({ item, index }: { item: any, index: number }) => {
     return (
       <FastImage source={item?.image} style={{ width: SCREEN_WIDTH * 0.9, height: 147, borderRadius: 8 }} resizeMode='cover'>
@@ -88,8 +105,103 @@ const HomeScreen = () => {
     )
   }
 
+  const mostPopularDestinationRenderItem = ({ item, index }: { item: any; index: number }) => {
+    const isFavourite = favourites[item?.id];
+    return (
+      <View style={[styles.mostPopularView]}>
+        <FastImage
+          style={{ width: '100%', height: 139 }}
+          source={item?.img}
+          resizeMode="contain"
+        />
+        <View style={styles.innerPopularTextView}>
+          <View style={{ width: '100%' }}>
+            <View style={[styles.row, { justifyContent: 'space-between', }]}>
+              <AppText size={14} family="AvenirNext" color="black" numLines={2}>
+                {item?.title}
+              </AppText>
+              <Pressable style={{ top: 2 }} onPress={() => onHeartPress(item.id)}>
+                <HeartIcon color={isFavourite && "#FF0000"} />
+              </Pressable>
+            </View>
+            <AppText
+              size={14}
+              family="AvenirRegular"
+              color="rgba(18, 5, 5, 0.89)"
+            >
+              {item?.price}
+            </AppText>
+            <View style={[styles.row, { justifyContent: 'space-between', }]}>
+              <AppText
+                numLines={1}
+                size={12}
+                family="AvenirRegular"
+                color="#76777B"
+              >
+                {item?.place}
+              </AppText>
+              <View style={[styles.row, { gap: 2 }]}>
+                <Pressable>
+                  <StarIcon />
+                </Pressable>
+                <AppText size={12} family='AvenirBlack' color="black">
+                  {item?.rating}
+                </AppText>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+
+  const renderHostingItem = ({ item }: { item: any }) => {
+    const isFavourite = favourites[item.id];
+
+    return (
+      <View style={styles.hostingCard}>
+        <FastImage source={item.image} style={styles.hostingImage} />
+        <View style={styles.hostingContent}>
+          <View style={styles.hostingHeader}>
+            <AppText size={16} family="AvenirHeavy" color="#111">
+              {item.title}
+            </AppText>
+
+            <Pressable onPress={() => onHeartPress(item.id)}>
+              <HeartIcon color={isFavourite ? '#FF0000' : '#000'} />
+            </Pressable>
+          </View>
+
+          <View style={styles.locationRow}>
+            <AppText size={13} family="AvenirRegular" color="#8A8A8A">
+              {item.location}
+            </AppText>
+          </View>
+
+          {/* Price & Rating */}
+          <View style={styles.priceRow}>
+            <AppText size={16} family="AvenirHeavy" color="#0D6EFD">
+              {item.price}
+              <AppText size={14} family="AvenirRegular" color="#111">
+                {' '} /night
+              </AppText>
+            </AppText>
+
+            <View style={styles.ratingRow}>
+              <StarIcon />
+              <AppText size={14} family="AvenirHeavy" color="#111">
+                {item.rating}
+              </AppText>
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  };
+
   return (
-    <View style={[styles.container, { backgroundColor: "#fff" }]}>
+    <View style={[styles.container, { backgroundColor: '#F2F2F7'}]}>
       <SafeAreaView style={[Platform.OS === "android" && { marginTop: 10 }]} edges={['top']} />
       <View style={[styles.headerView, styles.row, { justifyContent: 'space-between', }]}>
         <FastImage source={require('../../assets/images/HomeScreen/circle.png')} style={[styles.profileView, styles.center]} >
@@ -240,10 +352,10 @@ const HomeScreen = () => {
         <View style={styles.bannerBetween}>
           <FastImage source={require('../../assets/images/HomeScreen/banner2.jpg')} style={{ width: "100%", height: "100%" }} resizeMode='cover' >
             <LinearGradient colors={['transparent', 'rgba(0,0,0,0.9)']}
-              style={{ position: 'absolute', bottom: 0, width: "100%", height: 130,  }}
+              style={{ position: 'absolute', bottom: 0, width: "100%", height: 130, }}
             >
-              <View style={[{   flex: 1, marginTop: 17, padding: 12  }, styles.row, {alignItems:"flex-end", justifyContent:"space-between"}]}>
-                <View style={{width: '70%'}}>
+              <View style={[{ flex: 1, marginTop: 17, padding: 12 }, styles.row, { alignItems: "flex-end", justifyContent: "space-between" }]}>
+                <View style={{ width: '70%' }}>
                   <AppText size={24} family='AvenirHeavy' color='white'>Book Hotels at Just Starting on ₹799</AppText>
                 </View>
                 <Pressable style={[styles.BookNowbtn, styles.center]} onPress={() => console.log("object")}>
@@ -251,11 +363,69 @@ const HomeScreen = () => {
                 </Pressable>
               </View>
             </LinearGradient>
-
-
           </FastImage>
         </View>
 
+        <View style={styles.viewInner}>
+          <View style={{ paddingHorizontal: 16, marginBottom: 16 }}>
+            <AppText size={24} family='AvenirHeavy' color={"#111111"}>Most Popular</AppText>
+          </View>
+          <FlatList
+            data={mostPopularDestination}
+            keyExtractor={(item) => item?.id?.toString()}
+            renderItem={mostPopularDestinationRenderItem}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 16, gap: 13 }}
+          />
+        </View>
+        <View style={[styles.viewInner, { marginTop: 26 }]}>
+          <View style={{ paddingHorizontal: 16, marginBottom: 16 }}>
+            <AppText size={24} family='AvenirHeavy' color={"#111111"}>Explore the hostings</AppText>
+          </View>
+          <View style={[styles.buttonView, { paddingHorizontal: 16, }]}>
+            <Pressable style={[styles.hostBtn, { borderColor: exploreStatus === "Hotel" ? "#0D6EFD" : 'rgba(0, 0, 0, 0.3)', }]} onPress={() => onSelectHosting('Hotel')}>
+              <View style={styles.imageBg}>
+                <FastImage
+                  style={{ height: 16, width: 16, backgroundColor: '#F5F5F5' }}
+                  source={require('../../assets/images/HomeScreen/hotel.png')}
+                  resizeMode="contain"
+                />
+              </View>
+              <AppText size={16} family='AvenirNext' color='black'>Hotels</AppText>
+            </Pressable>
+
+            <Pressable style={[styles.hostBtn, { borderColor: exploreStatus === "Apartement" ? "#0D6EFD" : 'rgba(0, 0, 0, 0.3)', }]} onPress={() => onSelectHosting('Apartement')}>
+              <View style={styles.imageBg}>
+                <FastImage
+                  style={{ height: 16, width: 16 }}
+                  source={require('../../assets/images/HomeScreen/residential.png')}
+                  resizeMode="contain"
+                />
+              </View>
+              <AppText size={16} family='AvenirNext' color='black'>Apartement</AppText>
+            </Pressable>
+
+            <Pressable style={[styles.hostBtn, { borderColor: exploreStatus === "Villas" ? "#0D6EFD" : 'rgba(0, 0, 0, 0.3)', }]} onPress={() => onSelectHosting('Villas')}>
+              <View style={styles.imageBg}>
+                <FastImage
+                  style={{ height: 16, width: 16 }}
+                  source={require('../../assets/images/HomeScreen/villa.png')}
+                  resizeMode="contain"
+                />
+              </View>
+              <AppText size={16} family='AvenirNext' color='black'>Villas</AppText>
+            </Pressable>
+          </View>
+          <FlatList
+            data={hostingList}
+            keyExtractor={item => item.id}
+            renderItem={renderHostingItem}
+            scrollEnabled={false}
+            contentContainerStyle={[shadowStyle,styles.exploreHost]}
+          />
+
+        </View>
         <View style={{ height: 200 }} />
       </ScrollView>
     </View>

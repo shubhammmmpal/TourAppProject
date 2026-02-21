@@ -103,7 +103,7 @@ export const topDestination = [
     id: 1,
     img: require('../assets/images/HomeScreen/Bombay.jpg'),
     title: "Bombay",
-  }, 
+  },
   {
     id: 3,
     img: require('../assets/images/HomeScreen/Delhi.jpg'),
@@ -120,3 +120,79 @@ export const topDestination = [
     title: "Goa",
   },
 ]
+
+
+export const mostPopularDestination = [
+  {
+    id: 1,
+    img: require('../assets/images/HomeScreen/Udaipur.png'),
+    title: "Hotel  Raj Palace",
+    price: "₹14,80/night",
+    place: "Udaipur, Rajasthan",
+    rating: "4.5",
+  },
+  {
+    id: 2,
+    img: require('../assets/images/HomeScreen/Jaipur.png'),
+    title: "Royal Palace",
+    price: "₹14,80/night",
+    place: "Jaipur, Rajasthan",
+    rating: "4.5",
+
+  },
+  {
+    id: 3,
+    img: require('../assets/images/HomeScreen/Udaipur.png'),
+    title: "Lake View Palace",
+    price: "₹14,80/night",
+    place: "Pune, Maharashtra",
+    rating: "4.5",
+  },
+]
+
+
+export const exploreHostings = [
+  {
+    id: 1,
+    img: require('../assets/images/HomeScreen/hotel.png'),
+    title: "Hotels",
+  },
+  {
+    id: 2,
+    img: require('../assets/images/HomeScreen/residential.png'),
+    title: "Apartement",
+  },
+  {
+    id: 3,
+    img: require('../assets/images/HomeScreen/villa.png'),
+    title: "Villas",
+  },
+]
+
+
+export const hostingList = [
+  {
+    id: '1',
+    image: require('../assets/images/HomeScreen/hotel1.png'),
+    title: 'Elysian Suites',
+    location: 'San Diego, CA',
+    price: '$320',
+    rating: '3.8',
+  },
+  {
+    id: '2',
+    image: require('../assets/images/HomeScreen/hotel2.png'),
+    title: 'Elysian Suites',
+    location: 'San Diego, CA',
+    price: '$320',
+    rating: '3.8',
+  },
+  {
+    id: '3',
+    image: require('../assets/images/HomeScreen/hotel3.png'),
+    title: 'Elysian Suites',
+    location: 'San Diego, CA',
+    price: '$320',
+    rating: '3.8',
+  },
+];

@@ -227,4 +227,42 @@ function ArrowLeftIcon(props:any) {
   )
 }
 
-export {NotificationBellIcon, BusIcon, TrainIcon,ArrowLeftIcon, FlightIcon, HotelIcon, OfferIcon, TrainDarkIcon, ReverseIcon, CalenderIcon}
+function StarIcon(props:any) {
+  return (
+    <Svg
+      width={12}
+      height={12}
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <Path
+        d="M7.049 4.174l.174.351.39.057 2.337.34-1.683 1.635-.285.277.07.393.413 2.326-2.117-1.108L6 8.264l-.348.181-2.1 1.099.412-2.313.069-.392-.285-.278-1.684-1.634 2.34-.34.39-.057.175-.355L6 2.062l1.048 2.112zm-.824-2.567c0 .002-.003.003-.004.005l.002-.003.002-.002z"
+        fill="#FCD400"
+        stroke="#FCD400"
+        strokeWidth={1.5}
+      />
+    </Svg>
+  )
+}
+
+function HeartIcon(props:any) {
+  return (
+    <Svg
+      width={15}
+      height={14}
+      viewBox="0 0 15 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <Path
+        d="M10.875.5c1.048 0 1.898.351 2.587 1.052.69.7 1.038 1.57 1.038 2.644 0 .529-.087 1.046-.263 1.553-.172.498-.483 1.067-.953 1.709-.469.642-1.108 1.376-1.922 2.205a83.273 83.273 0 01-3.111 2.976l-.751.684-.751-.684a84.901 84.901 0 01-3.111-2.976C2.823 8.835 2.185 8.1 1.717 7.458c-.47-.642-.781-1.211-.953-1.709A4.726 4.726 0 01.5 4.196c0-1.073.349-1.943 1.038-2.644C2.227.852 3.078.5 4.125.5c.576 0 1.121.123 1.642.371.52.248.97.597 1.35 1.052l.383.459.384-.46c.38-.454.828-.803 1.35-1.05A3.767 3.767 0 0110.874.5z"
+        stroke={props?.color ? '#fff' : "#000"}
+        fill={props?.color ? props?.color : "#fff"}
+      />
+    </Svg>
+  )
+}
+export {NotificationBellIcon, BusIcon, StarIcon,TrainIcon,HeartIcon,ArrowLeftIcon, FlightIcon, HotelIcon, OfferIcon, TrainDarkIcon, ReverseIcon, CalenderIcon}
